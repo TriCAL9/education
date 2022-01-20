@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-spring-security'
+    implementation 'io.quarkus:quarkus-spring-di'
+    implementation 'io.quarkus:quarkus-spring-web'
+    implementation 'io.quarkus:quarkus-spring-data-jpa'
+    implementation 'io.quarkus:quarkus-arc'
+    testImplementation 'io.quarkus:quarkus-junit5'
+}
+
+group 'app.resume'
+version '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
